@@ -17,8 +17,10 @@ class App extends Component {
 
   search = async (e) => {
     e.preventDefault();
+    if(e.target.elements.input.value === "") {
+      alert("Enter a value")
+    }
     // let { data } = await axios.get(``);
-    console.log(this.state.searchQuery);
     this.setState({ searchQuery: "" })
   }
 
