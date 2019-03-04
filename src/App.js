@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Input from './Components/Input/Input';
 import axios from 'axios';
+import apiKey from './config';
 
 class App extends Component {
 
@@ -20,8 +21,9 @@ class App extends Component {
     if(e.target.elements.input.value === "") {
       alert("Enter a value")
     }
-    // let { data } = await axios.get(``);
-    this.setState({ searchQuery: "" })
+    let { data } = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${this.state.searchQuery}&page=1`);
+    this.setState({ searchQuery: "", movies: data.results });
+    console.log(this.state.movies)
   }
 
   render() {
@@ -29,6 +31,7 @@ class App extends Component {
       <div>
         <Navbar />
         <Input searchQuery={this.state.searchQuery} handleChange={this.handleChange} search={this.search} />
+        
       </div>
     );
   }
