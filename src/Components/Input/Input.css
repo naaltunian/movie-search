@@ -1,0 +1,17 @@
+.input-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    /* border: 1px solid black; */
+}
+
+.input-bar {
+    width: 25%;
+}
+
+.input-btn {
+    width: 10%;
+    border-radius: 5px;
+}
